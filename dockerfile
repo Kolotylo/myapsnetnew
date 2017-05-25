@@ -16,4 +16,5 @@ RUN powershell -command Install-WindowsFeature Web-WebSockets
 RUN mkdir site
 COPY . c:/site/
 RUN powershell -command New-Website -Name test23may -Port 80 -PhysicalPath C:\site\web
-CMD start c:\site\web\stopstart.ps1
+RUN c:\site\web\stopstart.ps1
+CMD ping -t 127.0.0.1
