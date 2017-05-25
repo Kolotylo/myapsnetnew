@@ -17,5 +17,4 @@ RUN mkdir web
 WORKDIR /web
 COPY . c:/web/
 RUN powershell -command New-Website -Name test23may -Port 80 -PhysicalPath C:\web
-RUN powershell -command Stop-Website -Name 'Default Web Site'
 CMD start c:\web\stopstart.ps1
