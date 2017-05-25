@@ -14,7 +14,6 @@ RUN powershell -command Install-WindowsFeature Web-ISAPI-Filter
 RUN powershell -command Install-WindowsFeature Web-Includes
 RUN powershell -command Install-WindowsFeature Web-WebSockets
 RUN mkdir site
-WORKDIR /web
 COPY . c:/site/
-RUN powershell -command New-Website -Name test23may -Port 80 -PhysicalPath C:\site
-CMD start c:\site\stopstart.ps1
+RUN powershell -command New-Website -Name test23may -Port 80 -PhysicalPath C:\site\web
+CMD start c:\site\web\stopstart.ps1
