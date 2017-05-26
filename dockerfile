@@ -15,6 +15,6 @@ RUN powershell -command Install-WindowsFeature Web-Includes
 RUN powershell -command Install-WindowsFeature Web-WebSockets
 RUN mkdir site
 COPY . c:/site/
-RUN powershell -command New-Website -Name test23may -Port 80 -PhysicalPath C:\site\web
-RUN powershell -command c:\site\web\stopstart.ps1
+RUN powershell -command Remove-Website 'Default Web Site'
+RUN powershell -command New-Website -Name 'Default Web Site' -Port 80 -PhysicalPath C:\site\web
 CMD ping -t 127.0.0.1
